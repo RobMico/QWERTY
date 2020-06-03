@@ -42,22 +42,24 @@ public class PlayerMovement : MonoBehaviour
     private void TakeInput()
     {
         direction = Vector2.zero;
-
-        if (Input.GetKey(KeyCode.W))
+        if (!animator.GetBool("isAttack")) 
         {
-            direction += Vector2.up;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            direction += Vector2.down;
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            direction += Vector2.left;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            direction += Vector2.right;
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+            {
+                direction += Vector2.up;
+            }
+            if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+            {
+                direction += Vector2.down;
+            }
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+            {
+                direction += Vector2.left;
+            }
+            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            {
+                direction += Vector2.right;
+            } 
         }
     }
 
@@ -66,6 +68,8 @@ public class PlayerMovement : MonoBehaviour
         animator.SetLayerWeight(1, 1);
         animator.SetFloat("xDir", direction.x);
         animator.SetFloat("yDir", direction.y);
+
+        
     }
 
 }
