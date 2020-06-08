@@ -34,14 +34,9 @@ public class TestSpell : MonoBehaviour
 
     private IEnumerator Fire()
     {
-
-        //       if (IsAnimationPlaying("Player_Attack_Right") || IsAnimationPlaying("Player_Attack_Left") ||
-        //              IsAnimationPlaying("Player_Attack_Up") || IsAnimationPlaying("Player_Attack_Down"))
-        //       {
         if (!animator.GetBool("isAttack"))
         {
             animator.SetBool("isAttack", true);
-            //animator.SetBool("isAttack", false);
             GameObject Bullet = Instantiate(projectTile, transform.position, Quaternion.identity);
             Vector2 mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 pos = transform.position;
@@ -51,6 +46,5 @@ public class TestSpell : MonoBehaviour
             yield return new WaitForSeconds(cooldown);
             animator.SetBool("isAttack", false);
         }
-//      }
     }
 }
