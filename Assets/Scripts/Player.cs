@@ -13,6 +13,7 @@ public static class Player
     public static float HP;
     public static float MP;
     public static float ST;
+    public static float Lucky;
     public static float Food;
     public static float Water;
 
